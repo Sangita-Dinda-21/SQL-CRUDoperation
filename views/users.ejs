@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users page</title>
+    <style> 
+        table,
+        td,
+        th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Username</th>
+        </tr>
+        <% for(res of result){ %>
+          <tr>
+            <td> <%= res.id %> </td>
+            <td> <%= res.email %> </td>
+            <td> <%= res.username %> </td>
+            <td>
+                <form method="GET" action="/user/<%=res.id%>/edit">
+                    <button>Edit Username</button>
+                </form>
+            </td>
+            <td>
+                <form method="GET" action="/user/<%=res.id%>/delete">
+                    <button>Delete Username</button>
+                </form>
+            </td>
+          </tr>
+        <% }%>
+    </table>
+    
+</body>
+</html>
